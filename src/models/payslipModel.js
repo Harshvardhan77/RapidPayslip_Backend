@@ -31,19 +31,19 @@ const payslipSchema= mongoose.Schema({
     },
     payslipDetails:[{
         payslipTitle:String,
-        payslipValue:Number
+        payslipDate:String
     }],
     employeeDetails:[{
-        employeeTitle:String,
-        employeeValue:Number
+        empDetailTitle:String,
+        empDetailsAmount:String
     }],
     earningDetails:[{
         earningTitle:String,
-        earningValue:Number
+        earningAmount:String
     }],
     deductionDetails:[{
         deductionTitle:String,
-        deductionValue:Number
+        deductionAmount:String
     }],
     netPay:{
         type:Number

@@ -20,9 +20,6 @@ try {
         resource_type:"auto"
     });
 
-    // successfuly uploaded
-    console.log(result);
-
     return result;
 
   } catch (error) {
