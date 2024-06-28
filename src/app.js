@@ -16,5 +16,9 @@ app.use(
   app.use(express.static("public"));
   app.use(cookieParser());
 
+app.get("/", (req,res)=>{
+  res.send("server is alive");
+})
+
 
 export default app
