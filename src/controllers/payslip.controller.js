@@ -8,8 +8,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 const uploadPayslip=asyncHandler(async(req,res)=>{
 
     const {headingTitle,companyName,email,month_year,state,city,payslipDetails,
-        employeeDetails,earningDetails,deductionDetails,netPay,amount,amountInWords,note}= req.body
-
+        employeeDetails,earningDetails,deductionDetails,netPay,amount,amountInWords,note,userId}= req.body
     
     console.log(req.body);
 
@@ -49,7 +48,8 @@ const uploadPayslip=asyncHandler(async(req,res)=>{
         netPay,
         amount,
         amountInWords,
-        note
+        note,
+        userId
     })
 
 
