@@ -10,7 +10,7 @@ const uploadPayslip=asyncHandler(async(req,res)=>{
     const {headingTitle,companyName,email,month_year,state,city,payslipDetails,
         employeeDetails,earningDetails,deductionDetails,netPay,amount,amountInWords,note,userId}= req.body
     
-    console.log(req.body);
+    
 
     if(!headingTitle || !companyName ||!email ||!month_year ||!state ||!city ){
         throw new ApiError(407,"All fields required");
@@ -22,12 +22,14 @@ const uploadPayslip=asyncHandler(async(req,res)=>{
     const parsedDeductionDetails = deductionDetails ? JSON.parse(deductionDetails) : [];
 
     const logoLocalPath=req.files?.logo[0]?.path;
+    const payslipLocalPath=req.files?.payslip[0]?.path;
 
     if(!logoLocalPath){
         throw new ApiError(400,"logo is required")
     }
 
     const logoImage=await uploadOnCloudinary(logoLocalPath);
+    const payslipImage=await uploadOnCloudinary(payslipLocalPath)
 
     if(!logoImage){
         throw new ApiError(400,'logo file is required')
@@ -49,7 +51,8 @@ const uploadPayslip=asyncHandler(async(req,res)=>{
         amount,
         amountInWords,
         note,
-        userId
+        userId,
+        payslip:payslipImage.url
     })
 
 

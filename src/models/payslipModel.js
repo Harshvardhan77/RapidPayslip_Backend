@@ -61,6 +61,10 @@ const payslipSchema= mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:'User',
         required:true
+    },
+    payslip:{
+        type:String,
+        required:true
     }
 },{
     timestamp:true

@@ -3,6 +3,7 @@ import { registerUser } from "../controllers/user.controller.js";
 import { loginUser } from "../controllers/login.controller.js";
 import { uploadPayslip } from "../controllers/payslip.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
+import { getPayslipsByUserId } from "../controllers/getPayslips.controller.js"
 
 const router = Router();
 
@@ -14,9 +15,14 @@ router.route("/download").post(
             name:"logo",
             maxCount:1
         },
+        {
+            name:"payslip",
+            maxCount:1
+        }
     ]),
     uploadPayslip
-)
+);
+router.route("/payslips/:userId").get(getPayslipsByUserId);
 
 
 

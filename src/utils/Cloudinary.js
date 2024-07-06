@@ -25,6 +25,7 @@ try {
   } catch (error) {
     fs.unlinkSync(localfilepath)
     console.error(error);
+    throw(error);
   }
 }
 
