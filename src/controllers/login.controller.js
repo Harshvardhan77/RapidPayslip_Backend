@@ -13,13 +13,13 @@ const loginUser = asyncHandler(async (req, res) => {
   const existedUser = await User.findOne({ email });
 
   if(!existedUser){
-    throw new ApiError(405, "Invalid username or password")
+    throw new ApiError(401, "Invalid username or password")
   }
 
   const isPasswordValid= await existedUser.isPasswordCorrect(password);
 
   if (!isPasswordValid){
-    throw new ApiError(405, "Invalid password");
+    throw new ApiError(401, "Invalid password");
   }
   else{
 
